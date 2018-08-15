@@ -1,0 +1,13 @@
+// Stylesheet Variables
+$hasMediaQueries : true;
+
+// Mixins
+@import 'sass/mixins/media-queries';
+
+// Vendor
+@import 'vendor/normalize';
+
+// Site
+// All site styles should be imported via
+// a _base.scss in the site folder.
+@import "site/base";

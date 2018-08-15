@@ -1,0 +1,45 @@
+.np-events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 3em auto;
+}
+
+.np-event {
+    flex-basis: calc(33% - 1em);
+    padding: 1em;
+    display: block;
+    margin: 0.5em;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+
+    @include bp('small') {
+        flex-basis: 100%;
+    }
+
+    &_title {
+        color: map-get($colors, primarytext);
+        font-size: 1.25em;
+        line-height: 1.25;
+    }
+
+    &_date {
+        color: map-get($colors, primarytext);
+        font-size: 1em;
+        line-height: 1.25;
+    }
+
+    &_creator {
+        color: map-get($colors, primarytext);
+        font-size: 0.875em;
+        line-height: 1.25;
+    }
+
+    &:hover {
+        background: map-get($colors, menubackground);
+
+        * {
+            color: map-get($colors, primarybackground) !important;
+        }
+    }
+}

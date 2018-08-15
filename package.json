@@ -1,0 +1,28 @@
+{
+  "name": "NODEPARSE",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Packages for NODE PARSE Project",
+  "author": "Justin Colangelo",
+  "license": "MIT",
+  "devDependencies": {
+    "beepbeep": "~1.2.0",
+    "colors": "~1.0.3",
+    "graceful-fs": "^4.1.11",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-livereload": "~3.7.0",
+    "gulp-rimraf": "~0.1.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "~1.3.0",
+    "minimatch": "^3.0.4"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "handlebars": "^4.0.11",
+    "jquery": "^3.3.1",
+    "rss-parser": "^3.4.3"
+  }
+}

@@ -1,0 +1,37 @@
+<html ng-app="app">
+<head>
+    <link rel="stylesheet" href='//fonts.googleapis.com/css?family=Roboto:400,700'>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div class="np-container">
+        <button class="np-button np-parseFeed">Parse Feed</button>
+
+        <div class="np-events-feed"></div>
+    </div>
+
+    <script type="text/javascript" src="./node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="./node_modules/handlebars/dist/handlebars.js"></script>
+    <script type="text/javascript" src="./scripts/feed.js"></script>
+
+    <script type="text/x-handlebars-template" id="np-events-template">
+        <div class="np-events">
+            {{#each items}}
+                <a href="{{link}}" target="_blank" class="np-event">
+                    <div class="np-event_title">
+                        {{title}}
+                    </div>
+                    <div class="np-event_date">
+                        {{getDate pubDate}}
+                    </div>
+                    <div class="np-event_creator">
+                        {{creator}}
+                    </div>
+                </a>
+            {{/each}}
+        </div>
+    </script>
+</body>
+
+</html>
