@@ -18,17 +18,21 @@
     <script type="text/x-handlebars-template" id="np-events-template">
         <div class="np-events">
             {{#each items}}
-                <a href="{{link}}" target="_blank" class="np-event">
-                    <div class="np-event_title">
-                        {{title}}
-                    </div>
-                    <div class="np-event_date">
-                        {{getDate pubDate}}
-                    </div>
-                    <div class="np-event_creator">
-                        {{creator}}
-                    </div>
-                </a>
+                <div class="np-event">
+                    <a href="{{link}}" target="_blank" class="np-event_link">
+                        <div class="np-event_image" style="background-image: url('{{featuredImage}}')"></div>
+                        <div class="np-event_title">
+                            {{title}}
+                        </div>
+                        <div class="np-event_date">
+                            {{startDate}} - {{endDate}}
+                        </div>
+                        <div class="np-event_creator">
+                            {{creator}}
+                        </div>
+                        <div class="np-event_cost">{{cost}}</div>
+                    </a>
+                </div>
             {{/each}}
         </div>
     </script>

@@ -10,7 +10,7 @@ $(() => {
             success: (feed) => {
                 let source = $('#np-events-template').html();
                 let template = Handlebars.compile(source);
-                let html = template({ items: feed.items });
+                let html = template({ items: feed });
 
                 console.log(html, source, template);
 

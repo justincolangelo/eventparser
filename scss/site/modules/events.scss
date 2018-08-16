@@ -8,13 +8,25 @@
 .np-event {
     flex-basis: calc(33% - 1em);
     padding: 1em;
-    display: block;
     margin: 0.5em;
-    text-decoration: none;
-    transition: all 0.5s ease-in-out;
 
     @include bp('small') {
         flex-basis: 100%;
+    }
+
+    &_link {
+        display: block;
+        text-decoration: none;
+        transition: all 0.5s ease-in-out;
+    }
+
+    &_image {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 12em;
+        width: 100%;
+        margin-bottom: 1em;
     }
 
     &_title {
@@ -32,6 +44,18 @@
     &_creator {
         color: map-get($colors, primarytext);
         font-size: 0.875em;
+        line-height: 1.25;
+    }
+
+    &_shortDescription {
+        color: map-get($colors, primarytext);
+        font-size: 1em;
+        line-height: 1.25;
+    }
+
+    &_longDescription {
+        color: map-get($colors, primarytext);
+        font-size: 1.125em;
         line-height: 1.25;
     }
 
