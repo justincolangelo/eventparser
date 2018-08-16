@@ -20,6 +20,11 @@
             {{#each items}}
                 <div class="np-event">
                     <a href="{{link}}" target="_blank" class="np-event_link">
+                        {{#if existed}}
+                            <div class="np-event_existed">
+                                <span>EXISTED BEFORE IMPORT</span>
+                            </div>
+                        {{/if}}
                         <div class="np-event_image" style="background-image: url('{{featuredImage}}')"></div>
                         <div class="np-event_title">
                             {{title}}

@@ -113,10 +113,18 @@ app.get('/parsefeed', (req, res) => {
                             data.presenters.push(presenter);
                         });
 
-
-                        eventsRef.push(data);
+                        eventsRef
+                            .orderByChild('title')
+                            .equalTo(data.title).on('value', (snapshot) => {
+                                if (snapshot.exists()) {
+                                    data.existed = true;
+                                } else {
+                                    eventsRef.push(data);
+                                    data.existed = false;
+                                }
+                        });
+                        
                         allData.push(data);
-
                     })
                     .then(() => {
                         ++index;

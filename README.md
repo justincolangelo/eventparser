@@ -30,3 +30,16 @@ Notice the private key value has `\n` left in the string. This is necessary.
     FIREBASE509CERTPROVIDER=https://www.googleapis.com/oauth2/v1/certs
     FIREBASE509CERTURL=https://www.googleapis.com/robot/v1/metadata/x509/.........
     FIREBASEDATABASEURL=https://theapp.firebaseio.com
+
+
+Update your Firebase Rules in the web interface to add an index for `title` on `events`
+
+    {
+        "rules": {
+            ...
+
+            "events": {
+                ".indexOn": "title"
+            }
+        }
+    }
