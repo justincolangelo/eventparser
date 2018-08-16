@@ -9,6 +9,35 @@ const fs = require('fs');
 const readline = require('readline');
 const rp = require('request-promise');
 const cheerio = require('cheerio');
+const admin = require('firebase-admin');
+const dotenv = require('dotenv');
+const { error } = dotenv.config();
+
+if (error) {
+  throw error;
+}
+
+admin.initializeApp({
+    credential: admin.credential.cert({
+        "type": process.env.FIREBASETYPE,
+        "project_id": process.env.FIREBASEPROJECTID,
+        "private_key_id": process.env.FIREBASEPRIVATEKEYID,
+        "private_key": process.env.FIREBASEPRIVATEKEY.replace(/\\n/g, '\n'),
+        "client_email": process.env.FIREBASECLIENTEMAIL,
+        "client_id": process.env.FIREBASECLIENTID,
+        "auth_uri": process.env.FIREBASEAUTHURI,
+        "token_uri": process.env.FIREBASETOKENURI,
+        "auth_provider_x509_cert_url": process.env.FIREBASE509CERTPROVIDER,
+        "client_x509_cert_url": process.env.FIREBASE509CERTURL
+    }),
+    databaseURL: process.env.FIREBASEDATABASEURL
+});
+
+// Get a database reference to our blog
+let db = admin.database();
+let eventsRef = db.ref('events');
+
+
 const xmlFeedUrl = 'https://www.himalayaninstitute.org/calendar/feed?action=tribe_photo&tribe_paged=1&tribe_event_display=photo&tribe_event_type%5B%5D=PureRejuv+Program&tribe_venues%5B%5D=32593&tribe_event_type%5B%5D=PureRejuv+Program&tribe_venues%5B%5D=32593';
 let Parser = require('rss-parser');
 let parser = new Parser();
@@ -76,15 +105,16 @@ app.get('/parsefeed', (req, res) => {
                         $('.presenters .presenter').each(() => {
 
                             let presenter = {
-                                image: $(this).find('img').attr('src'),
+                                image: $(this).find('img').attr('src') || '',
                                 name: $(this).find('.organizer-desc h5 a').text(),
                                 description: $(this).find('.organizer-desc p').text(),
                             };
 
                             data.presenters.push(presenter);
-
                         });
 
+
+                        eventsRef.push(data);
                         allData.push(data);
 
                     })
