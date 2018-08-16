@@ -69,6 +69,7 @@ app.get('/parsefeed', (req, res) => {
                             contentSnippet : item.contentSnippet,
                             contentEncoded : item['content:encoded'],
                             featuredImage : $('.tribe-events-event-image img').attr('src'),
+                            soldout : $('.event-sold-out').length > 0,
                             presenters : []
                         };
 

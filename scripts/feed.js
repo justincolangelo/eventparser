@@ -2,6 +2,10 @@ Handlebars.registerHelper('getDate', (dateString) => {
     return new Date(dateString).toLocaleDateString();
 });
 
+Handlebars.registerHelper('getStatus', (statusBool) => {
+    return statusBool ? 'Sold Out' : '';
+});
+
 $(() => {
     $('.np-parseFeed').on('click', () => {
         $.ajax({

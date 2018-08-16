@@ -31,6 +31,9 @@
                             {{creator}}
                         </div>
                         <div class="np-event_cost">{{cost}}</div>
+                        {{#if soldout}}
+                            <div class="np-event_status">{{getStatus soldout}}</div>
+                        {{/if}}
                     </a>
                 </div>
             {{/each}}
